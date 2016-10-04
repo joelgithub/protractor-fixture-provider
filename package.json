@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Spec fixture provider for protractor tests",
   "main": "specGuiBootstrap.js",
+  "author": "Joel Andersson <joel.s.andersson@hotmail.com>"
   "repository": {
     "type": "git",
     "url": "https://github.com/joelgithub/protractor-fixture-provider.git"
