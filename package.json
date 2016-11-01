@@ -1,16 +1,21 @@
 {
   "name": "protractor-fixture-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spec fixture provider for protractor tests",
-  "main": "specGuiBootstrap.js",
-  "author": "Joel Andersson <joel.s.andersson@hotmail.com>"
+  "main": "src/main/resources/specGuiBootstrap.js",
+  "author": "Joel Andersson <joel.s.andersson@hotmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/joelgithub/protractor-fixture-provider.git"
   },
+  "scripts": {
+  	     "test": "./node_modules/.bin/jasmine-node src/test/resources/spec"
+  }, 
   "devDependencies": {
     "angular-mocks": "^1.5.3",
     "glob": "^7.1.0",
+    "jasmine-node": "^1.14.5",
+    "karma-jasmine": "^1.0.2",
     "protractor": "^4.0.8"
   }
 }

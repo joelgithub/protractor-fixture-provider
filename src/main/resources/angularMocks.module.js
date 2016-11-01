@@ -1,4 +1,4 @@
-// File: "angularMocks.module.js"
+
 module.exports = {
     mock: getScript()
 };
