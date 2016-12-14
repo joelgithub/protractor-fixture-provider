@@ -1,6 +1,6 @@
 {
   "name": "protractor-fixture-provider",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Spec fixture provider for protractor tests",
   "main": "src/main/resources/specGuiBootstrap.js",
   "author": "Joel Andersson <joel.s.andersson@hotmail.com>",
