@@ -14,7 +14,7 @@ function addFixtureMockModuleSplit(specFixtureJsonFileName, specFixtureJsonFileP
         var specFixtureModuleName = specFixtureJsonFileName.substring(0, specFixtureJsonFileName.length - 5);
         var specFixtures = specGuiFixtureCreator.createFixtureModuleAsString(specFixtureJsonFilePath, specFixtureModuleName);
         browser.addMockModule(specFixtureModuleName, specFixtures);
-        return require(specFixtureJsonFilePath + "/" + specFixtureJsonFileName);
+        return require(path.join(specFixtureJsonFilePath, specFixtureJsonFileName));
     }
     else {
         console.log("Could not load fixture. Fixture needs to be a .json file.");
@@ -43,14 +43,14 @@ module.exports = {
             browser = browserOverride;
         }
 
-        specFixtureDir = currentSpecFilePath.substring(0, currentSpecFilePath.lastIndexOf('/')) + '/specdata';
-        var angularMocksScript = require(__dirname + '/angularMocks.module.js').mock;
+        specFixtureDir = path.join(path.dirname(currentSpecFilePath), 'specdata');
+        var angularMocksScript = require(path.join(__dirname, '/angularMocks.module.js')).mock;
         browser.addMockModule('ngMockE2E', angularMocksScript);
 
         var trimmedCurrentSpecFileName = stripFileSuffixFromFileName(path.basename(currentSpecFilePath));
 
         var glob = require("glob");
-        var jsonFiles = glob.sync(specFixtureDir + '/' + trimmedCurrentSpecFileName + '*.json');
+        var jsonFiles = glob.sync(path.join(specFixtureDir, trimmedCurrentSpecFileName + '*.json'));
 
         var jsonObjectsMap = {};
         for(var i in jsonFiles) {

@@ -5,10 +5,11 @@ Returns the module factory declaration as a String
 */
 var moduleFactoryHead = 'angular.module(\'%module_name%\', []).factory(\'%module_name%\', function () { return ';
 var moduleFactoryTail = '});';
+var path = require('path');
 module.exports = {
     createFixtureModuleAsString: function(specFixturesModulePath, specFixtureModuleName) {
         fs = require("fs");
-        script = fs.readFileSync(specFixturesModulePath + '/' + specFixtureModuleName + ".json").toString().trim();
+        script = fs.readFileSync(path.join(specFixturesModulePath, specFixtureModuleName + ".json")).toString().trim();
         //Make sure json starts with a curly brace
         if(script.charAt(0) !== '{') {
             script = '{' + script + '}';
